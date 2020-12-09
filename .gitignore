@@ -1,0 +1,6 @@
+__pycache__/
+media/*
+.vscode/
+hyperd*.log
+.DS_Store
+*.db

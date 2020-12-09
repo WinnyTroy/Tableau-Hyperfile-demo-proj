@@ -1,4 +1,7 @@
 fastapi
+tableauhyperapi
+fastapi-cache
+pandas
 uvicorn
 sqlalchemy
 async-exit-stack
