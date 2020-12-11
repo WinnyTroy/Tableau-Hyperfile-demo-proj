@@ -1,14 +1,14 @@
 # Utility functions file
 import os
+import pandas as pd
 from typing import List
 from pathlib import Path
-
-import pandas as pd
+from app.settings import settings
+from app.libs.client import TableauClient
 from tableauhyperapi import (
     SqlType, Connection, HyperProcess, TableName,
     escape_string_literal, TableDefinition, CreateMode)
 
-from app.settings import settings
 
 
 def element_type_to_hyper_sql_type(elem_type: str) -> SqlType:
@@ -81,7 +81,10 @@ def _prep_csv_for_import(csv_path: Path) -> List[TableDefinition.Column]:
 
 
 def handle_csv_import(
-        file_identifier: str, csv_path: Path, process: HyperProcess) -> int:
+        file_identifier: str,
+        csv_path: Path,
+        process: HyperProcess,
+        publish: bool = False) -> int:
     """
     Handles CSV Import to Hyperfile
     """
@@ -100,6 +103,11 @@ def handle_csv_import(
                 columns=columns
             )
             connection.catalog.create_table(extract_table)
-    return _import_csv_to_hyperfile(
+    import_count = _import_csv_to_hyperfile(
         path=database_path, csv_path=str(csv_path),
         table_name=table_name, process=process)
+    if publish:
+        tableau_client = TableauClient()
+        tableau_client.publish_hyper(database_path)
+
+    return import_count
