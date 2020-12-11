@@ -1,4 +1,5 @@
 __pycache__/
+src/app/__pycache__/
 media/*
 .vscode/
 hyperd*.log

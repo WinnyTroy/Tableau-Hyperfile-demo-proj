@@ -56,7 +56,7 @@ def import_data_from_csv(
         shutil.copyfileobj(csv_file.file, tmp_upload)
         tmp_upload.flush()
         imported_rows = handle_csv_import(
-            file_identifier=id_string, csv_path=Path(tmp_upload.name), process=process)
+            file_identifier=id_string, csv_path=Path(tmp_upload.name), process=process, publish=True)
     return {'imported_rows': imported_rows}
 
 @router.get("/schema/", status_code = status.HTTP_200_OK)

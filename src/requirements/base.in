@@ -13,3 +13,4 @@ python-dotenv
 databases
 asyncpg
 psycopg2
+tableauserverclient

@@ -10,7 +10,9 @@ async-generator==1.10     # via -r requirements/base.in
 async-timeout==3.0.1      # via aioredis
 asyncpg==0.21.0           # via -r requirements/base.in
 bcrypt==3.2.0             # via passlib
+certifi==2020.12.5        # via requests
 cffi==1.14.4              # via bcrypt, cryptography, tableauhyperapi
+chardet==3.0.4            # via requests
 click==7.1.2              # via uvicorn
 cryptography==3.2.1       # via python-jose
 databases==0.4.1          # via -r requirements/base.in
@@ -19,6 +21,7 @@ fastapi-cache==0.0.6      # via -r requirements/base.in
 fastapi==0.61.2           # via -r requirements/base.in
 h11==0.11.0               # via uvicorn
 hiredis==1.1.0            # via aioredis
+idna==2.10                # via requests
 numpy==1.19.4             # via pandas
 pandas==1.1.5             # via -r requirements/base.in
 passlib[bcrypt]==1.7.4    # via -r requirements/base.in
@@ -31,10 +34,13 @@ python-dotenv==0.15.0     # via -r requirements/base.in
 python-jose[cryptography]==3.2.0  # via -r requirements/base.in
 python-multipart==0.0.5   # via -r requirements/base.in
 pytz==2020.4              # via pandas
+requests==2.25.0          # via tableauserverclient
 rsa==4.6                  # via python-jose
 six==1.15.0               # via bcrypt, cryptography, ecdsa, python-dateutil, python-jose, python-multipart
 sqlalchemy==1.3.20        # via -r requirements/base.in, databases
 starlette==0.13.6         # via fastapi
 tableauhyperapi==0.0.11889  # via -r requirements/base.in
+tableauserverclient==0.14.1  # via -r requirements/base.in
 typing-extensions==3.7.4.3  # via uvicorn
+urllib3==1.26.2           # via requests
 uvicorn==0.12.2           # via -r requirements/base.in
